@@ -6,11 +6,5 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 @Getter
 public class LibraryWalletRequestDTO {
-    @NotBlank
-    private Long libraryWalletNumber;
-    @NotBlank
-    private LocalDateTime emissionDate;
-    @NotBlank
-    private boolean isValid;
 
 }
