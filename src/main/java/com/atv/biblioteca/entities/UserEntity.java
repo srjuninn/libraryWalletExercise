@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,4 +33,7 @@ public class UserEntity {
     @OneToOne
     @JoinColumn(name = "wallet_id")
     private LibraryWalletEntity libraryWallet;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LoanEntity> loans = new ArrayList<>();
 }
