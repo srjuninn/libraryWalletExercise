@@ -1,16 +1,16 @@
 package com.atv.biblioteca.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="library_wallet")
@@ -19,10 +19,9 @@ public class LibraryWalletEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long libraryWalletNumber;
     private LocalDateTime emissionDate;
-    private boolean isValid;
+    private boolean isValid = false;
 
-    public LibraryWalletEntity(Long libraryWalletNumber, LocalDateTime emissionDate) {
-        this.libraryWalletNumber = libraryWalletNumber;
-        this.emissionDate = emissionDate;
-    }
+    @OneToOne(mappedBy = "libraryWallet")
+    private UserEntity user;
+
 }
