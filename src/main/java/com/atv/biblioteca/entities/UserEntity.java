@@ -26,4 +26,8 @@ public class UserEntity {
         this.email = email;
         this.password = password;
     }
+
+    @OneToOne
+    @JoinColumn(name = "wallet_id")
+    private LibraryWalletEntity libraryWallet;
 }
