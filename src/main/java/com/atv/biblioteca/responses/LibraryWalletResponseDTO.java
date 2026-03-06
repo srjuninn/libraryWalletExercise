@@ -1,5 +1,6 @@
 package com.atv.biblioteca.responses;
 
+import com.atv.biblioteca.entities.LibraryWalletEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,8 +12,9 @@ public class LibraryWalletResponseDTO {
     private LocalDateTime emissionDate;
     private boolean isValid;
 
-    public LibraryWalletResponseDTO(long libraryWalletNumber, long libraryWalletNumber1) {
-        this.libraryWalletNumber = libraryWalletNumber;
-
+    public LibraryWalletResponseDTO(LibraryWalletEntity newLibraryWallet) {
+        this.libraryWalletNumber = newLibraryWallet.getLibraryWalletNumber();
+        this.emissionDate = newLibraryWallet.getEmissionDate();
+        this.isValid = newLibraryWallet.isValid();
     }
 }
